@@ -53,6 +53,7 @@ def Clear():
     global exp
     exp = " "
     equation.set(exp)
+    #1
 
 def Theme():
     global theme
@@ -126,6 +127,8 @@ def display():
 
         W = ttk.Button(key, text='W', width=6, command=lambda: press('W'))
         W.grid(row=2, column=3, ipadx=6, ipady=10)
+
+        #2
 
         E = ttk.Button(key, text='E', width=6, command=lambda: press('E'))
         E.grid(row=2, column=4, ipadx=6, ipady=10)
@@ -368,3 +371,73 @@ def display():
 
         L = ttk.Button(key, text='l', width=6, command=lambda: press('l'))
         L.grid(row=3, column=8, ipadx=6, ipady=10)
+        
+        #3
+
+        semi_co = ttk.Button(key, text=';', width=6,
+                             command=lambda: press(';'))
+        semi_co.grid(row=3, column=9, ipadx=6, ipady=10)
+
+        quotation = ttk.Button(key, text="'", width=6,
+                               command=lambda: press('"'))
+        quotation.grid(row=3, column=10, ipadx=6, ipady=10)
+
+        back_slash = ttk.Button(key, text='\\', width=6,
+                                command=lambda: press('\\'))
+        back_slash.grid(row=3, column=11, ipadx=6, ipady=10)
+
+        enter = ttk.Button(key, text='Enter', width=6,
+                           command=lambda: press('\n'))
+        enter.grid(row=3, column=12, columnspan=2, ipadx=55, ipady=10)
+
+        # Fourth line Buttons
+
+        shift = ttk.Button(key, text='Shift', width=6, command=Shift)
+        shift.grid(row=4, column=0, columnspan=2, ipadx=55, ipady=10)
+
+        Z = ttk.Button(key, text='z', width=6, command=lambda: press('z'))
+        Z.grid(row=4, column=2, ipadx=6, ipady=10)
+
+        X = ttk.Button(key, text='x', width=6, command=lambda: press('x'))
+        X.grid(row=4, column=3, ipadx=6, ipady=10)
+
+        C = ttk.Button(key, text='c', width=6, command=lambda: press('c'))
+        C.grid(row=4, column=4, ipadx=6, ipady=10)
+
+        V = ttk.Button(key, text='v', width=6, command=lambda: press('v'))
+        V.grid(row=4, column=5, ipadx=6, ipady=10)
+
+        B = ttk.Button(key, text='b', width=6, command=lambda: press('b'))
+        B.grid(row=4, column=6, ipadx=6, ipady=10)
+
+        N = ttk.Button(key, text='n', width=6, command=lambda: press('n'))
+        N.grid(row=4, column=7, ipadx=6, ipady=10)
+
+        M = ttk.Button(key, text='m', width=6, command=lambda: press('m'))
+        M.grid(row=4, column=8, ipadx=6, ipady=10)
+
+        comma = ttk.Button(key, text=',', width=6, command=lambda: press(','))
+        comma.grid(row=4, column=9, ipadx=6, ipady=10)
+
+        dot = ttk.Button(key, text='.', width=6, command=lambda: press('.'))
+        dot.grid(row=4, column=10, ipadx=6, ipady=10)
+
+        slash = ttk.Button(key, text='/', width=6, command=lambda: press('/'))
+        slash.grid(row=4, column=11, ipadx=6, ipady=10)
+
+        clear = ttk.Button(key, text='Clear', width=6, command=Clear)
+        clear.grid(row=4, column=12, columnspan=2, ipadx=55, ipady=10)
+
+        # Fifth Line Buttons
+
+        space = ttk.Button(key, text='Space', width=6,
+                           command=lambda: press(' '))
+        space.grid(row=5, column=2, columnspan=8, ipadx=350, ipady=10)
+
+        theme = ttk.Button(key, text='Theme', width=6, command=Theme)
+        theme.grid(row=5, column=12, columnspan=2, ipadx=55, ipady=10)
+
+        key.mainloop()
+
+
+display()
