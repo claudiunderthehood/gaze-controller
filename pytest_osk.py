@@ -55,6 +55,10 @@ def Shift():
     global is_shift
     is_shift = not is_shift
     display()
+    return True
+    
+def test_shift():
+    assert Shift() == True
 
 
 def Clear():
@@ -78,6 +82,10 @@ def Theme():
         style.configure('TButton', background='azure')
         style.configure('TButton', foreground='black')
         theme = "dark"
+    return True
+
+def test_theme():
+    assert Theme() == True
 
 
 def display():
@@ -449,6 +457,10 @@ def display():
         theme.grid(row=5, column=12, columnspan=2, ipadx=55, ipady=10)
 
         key.mainloop()
+        
+    return True
 
+def test_display():
+    assert display() == True
 
 display()
