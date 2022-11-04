@@ -2,9 +2,6 @@ import cv2
 import mediapipe as mp
 import pyautogui
 
-def lerp(a,b,t):
-    return (b-a)*t + a
-
 def map(a,b,c,d,x):
     return(d*(x-a)+c*(b-x))/(b-a)
 
@@ -32,10 +29,10 @@ while True:
             x = int(landmark.x * frame_w)
             y = int(landmark.y * frame_h)
             if id == 0:
-                screen_x = map(cx-0.003,cx+0.003,0,screen_w,px)
-                screen_y = map(cy-0.005,cy+0.005,0,screen_h,py)
+                screen_x = map(cx-0.006,cx,0,screen_w,px)
+                screen_y = map(cy-0.01,cy-0.007,0,screen_h,py)
                 mousex, mousey = pyautogui.position()
-                pyautogui.moveTo(lerp(mousex,screen_x,0.005), lerp(mousey,screen_y,0.005))
+                pyautogui.moveTo(map(0,1,mousex,screen_x,0.02), map(0,1,mousey,screen_y,0.005))
             else:
                 cv2.circle(frame, (x, y), 3, (0, 255, 0))
         left = [landmarks[145], landmarks[159]]
