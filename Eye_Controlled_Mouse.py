@@ -45,4 +45,8 @@ while True:
             pyautogui.doubleClick()
             pyautogui.sleep(1)
     cv2.imshow('ECM', frame)
-    cv2.waitKey(1)
+    k = cv2.waitKey(1) & 0xFF #esc to quit
+    if k == 27:
+        cv2.destroyAllWindows()
+        break 
+    
