@@ -41,6 +41,7 @@ class ECM:
             #pyautogui.click()
             pyautogui.doubleClick()
             pyautogui.sleep(1)
+<<<<<<< HEAD
             z = "Left Eye On :)"
         return z
 
@@ -74,3 +75,11 @@ class ECM:
 
 x=ECM
 x.main()
+=======
+    cv2.imshow('ECM', frame)
+    k = cv2.waitKey(1) & 0xFF #esc to quit
+    if k == 27:
+        cv2.destroyAllWindows()
+        break 
+    
+>>>>>>> 4cb361c0d3cf079f9126dcdf253d2e0b9e315e4d
