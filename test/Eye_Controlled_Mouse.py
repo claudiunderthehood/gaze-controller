@@ -71,6 +71,3 @@ class ECM:
                 ECM.leftEye(landmarks,frame,frame_w,frame_h)   
             if(ECM.Camera(frame)):
                 break
-
-x=ECM
-x.main()
