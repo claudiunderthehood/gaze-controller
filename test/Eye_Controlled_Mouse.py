@@ -46,7 +46,7 @@ class ECM:
 
     def Camera(frame):
         cv2.imshow('ECM', frame)
-        k = cv2.waitKey(1) & 0xFF #esc to quit
+        k = cv2.waitKey(1) & 0xFF
         if k == 27:
             cv2.destroyAllWindows()
             return True
