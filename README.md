@@ -41,6 +41,3 @@ Now you have both your camera and your keyboard opened. To click blink your left
 5. Submit a pull request :D
 
 
-## License
-
-TODO: Write license
