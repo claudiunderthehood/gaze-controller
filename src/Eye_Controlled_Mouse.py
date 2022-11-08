@@ -3,12 +3,15 @@ import mediapipe as mp
 import pyautogui
 
 class ECM:
+    #costruttore
     def __init__(self) -> None:
         pass
     
+    #funzione per il mapping della pupilla
     def map(a,b,c,d,x):
         return(d*(x-a)+c*(b-x))/(b-a)
     
+    #funzione per il controllo del mouse tramite occhio destro
     def rightEye(landmarks,frame,frame_w,frame_h,screen_w,screen_h):
         right = [landmarks[473],landmarks[474],landmarks[475],landmarks[476],landmarks[477]]
         center = [landmarks[386],landmarks[362]]
@@ -16,7 +19,6 @@ class ECM:
         cy = center[1].y
         px = landmarks[473].x
         py = landmarks[473].y
-        z = "Right Eye Off :("
         for id, landmark in enumerate(right):
             x = int(landmark.x * frame_w)
             y = int(landmark.y * frame_h)
@@ -25,13 +27,11 @@ class ECM:
                 screen_y = ECM.map(cy-0.01,cy-0.007,0,screen_h,py)
                 mousex, mousey = pyautogui.position()
                 pyautogui.moveTo(ECM.map(0,1,mousex,screen_x,0.02), ECM.map(0,1,mousey,screen_y,0.005))
-                z = "Rigth Eye On :)"
             else:
                 cv2.circle(frame, (x, y), 3, (0, 255, 0))
-        return z
     
+    #funzione per clickare con l'occhio sinistro
     def leftEye(landmarks,frame,frame_w,frame_h):
-        z = "Left Eye Off :("
         left = [landmarks[145], landmarks[159]]
         for landmark in left:
             x = int(landmark.x * frame_w)
@@ -41,9 +41,8 @@ class ECM:
             #pyautogui.click()
             pyautogui.doubleClick()
             pyautogui.sleep(1)
-            z = "Left Eye On :)"
-        return z
 
+    #funzione per accendere la cam e per chiudere il programma con esc
     def Camera(frame):
         cv2.imshow('ECM', frame)
         k = cv2.waitKey(1) & 0xFF #esc to quit
@@ -70,4 +69,7 @@ class ECM:
                 ECM.rightEye(landmarks,frame,frame_w,frame_h,screen_w,screen_h)
                 ECM.leftEye(landmarks,frame,frame_w,frame_h)   
             if(ECM.Camera(frame)):
-                break
+               break
+
+x=ECM
+x.main()
